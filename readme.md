@@ -10,7 +10,7 @@ allowing for cluster-specific overrides. When used with a system like ArgoCD
 an administrator can push a change to the base values and have it automatically
 propagated to all clusters. This avoids unnecessary regeneration of deployment
 definitions and allows for a more centralized management of applications which
-can be used with a wide variety of CD tools.
+can be used with a wide variety of CD tools
 
 ---
 
@@ -21,13 +21,6 @@ can be used with a wide variety of CD tools.
 - Recursive dependency deployment for applications that depend on resources from another
 - Agnostic helm integration; HAH only uses standard helm features, so it can be used with any helm compatible tools
 
----
-
-# Requirements
-
-- Helm....
-- Kubernetes (optional)
-  - Not sure what you'd do with it without a cluster, but it ***could*** be used without it
 
 # FAQ
 
