@@ -94,7 +94,7 @@ jobs:
           helm package ./charts/${{ env.HELM_ROOT_CHART }} -d ${{ env.HELM_REPO_BRANCH }}/charts
 
       - name: Copy packaged umbrella chart to worktree
-        run: cp packaged-charts/${{ env.HELM_ROOT_CHART }}.tgz helm-repo/charts/
+        run: cp packaged-charts/${{ env.HELM_ROOT_CHART }}*.tgz helm-repo/charts/
 
       - name: Generate Helm repo index for umbrella chart
         run: |
