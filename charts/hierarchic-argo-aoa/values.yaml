@@ -7,7 +7,7 @@ hierarchic-argo-aoa:
 
 global:
   chartDefaults:
-    repoURL: "https://default-repo-url.com"
+    repoURL: "https://dcedstrom.github.io/hierarchic-helm"
     revision: ">=1.0.0-0"
   argoNamespace: "argocd"
   project: "default"
@@ -22,7 +22,7 @@ prom:
   namespace: "prometheus"
   project: "monitoring"
   repoURL: ""
-  chart_name: "prometheus"
+  chart_name: "hierarchic-prom"
   revision: ">=1.0.0-0"
   valueOverrides: {}
 
@@ -32,7 +32,7 @@ graf:
   namespace: "grafana"
   project: "monitoring"
   repoURL: ""
-  chart_name: "grafana"
+  chart_name: "hierarchic-grafana"
   revision: ">=1.0.0-0"
   valueOverrides: {}
 
@@ -41,7 +41,7 @@ extsec:
   namespace: "external-secrets"
   project: "security"
   repoURL: ""
-  chart_name: "external-secrets"
+  chart_name: "hierarchic-extsec"
   revision: ">=1.0.0-0"
   valueOverrides: {}
 
@@ -51,7 +51,7 @@ minio:
   namespace: "minio"
   project: ""
   repoURL: ""
-  chart_name: "minio"
+  chart_name: "hierarchic-minio"
   revision: ""
   valueOverrides: {}
 
