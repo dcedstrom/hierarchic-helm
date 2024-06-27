@@ -80,11 +80,12 @@ jobs:
 
       - name: Commit and push sub-charts to ${{ env.HELM_REPO_BRANCH }} branch
         run: |
+          cd ${{ env.HELM_REPO_BRANCH }}
           ls
           git add -A
           git commit -m "Update sub-charts"
           git push origin ${{ env.HELM_REPO_BRANCH }} --force
-        working-directory: ${{ env.HELM_REPO_BRANCH }}
+          cd ..
 
       - name: Update dependencies for umbrella chart
         run: helm dependency update ./charts/${{ env.HELM_ROOT_CHART }}
@@ -107,11 +108,12 @@ jobs:
 
       - name: Commit and push umbrella chart to ${{ env.HELM_REPO_BRANCH }} branch
         run: |
+          cd ${{ env.HELM_REPO_BRANCH }}
           ls
           git add -A
           git commit -m "Update umbrella chart"
           git push origin ${{ env.HELM_REPO_BRANCH }} --force
-        working-directory: ${{ env.HELM_REPO_BRANCH }}
+          cd ..
 
       - name: Clean up
         run: git worktree remove ${{ env.HELM_REPO_BRANCH }}
