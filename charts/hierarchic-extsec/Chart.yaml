@@ -1,0 +1,12 @@
+apiVersion: v2
+name: hierarchic-extsec
+version: 1.0.0-alpha
+type: application
+appVersion: "0.1"
+description: hierarchic-extsec Base Chart
+dependencies:
+  - name: external-secrets
+    version: 0.9.19
+    repository: https://charts.external-secrets.io/
+    alias: extsec
+    condition: extsec.enabled

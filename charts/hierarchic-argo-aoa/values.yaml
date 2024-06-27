@@ -1,0 +1,57 @@
+# Prefix to use for resources
+namePrefix: ""
+
+hierarchic-argo-aoa:
+  enabled: true
+
+
+global:
+  chartDefaults:
+    repoURL: "https://default-repo-url.com"
+    revision: ">=1.0.0-0"
+  argoNamespace: "argocd"
+  project: "default"
+  dest:
+    name: ""
+    server: "https://kubernetes.default.svc"
+    namespace: "default"
+    project: "default"
+
+prom:
+  name: "prometheus"
+  namespace: "prometheus"
+  project: "monitoring"
+  repoURL: ""
+  chart_name: "prometheus"
+  revision: ">=1.0.0-0"
+  valueOverrides: {}
+
+graf:
+  enabled: true
+  name: "grafana"
+  namespace: "grafana"
+  project: "monitoring"
+  repoURL: ""
+  chart_name: "grafana"
+  revision: ">=1.0.0-0"
+  valueOverrides: {}
+
+extsec:
+  name: "external-secrets"
+  namespace: "external-secrets"
+  project: "security"
+  repoURL: ""
+  chart_name: "external-secrets"
+  revision: ">=1.0.0-0"
+  valueOverrides: {}
+
+
+minio:
+  name: "minio"
+  namespace: "minio"
+  project: ""
+  repoURL: ""
+  chart_name: "minio"
+  revision: ""
+  valueOverrides: {}
+

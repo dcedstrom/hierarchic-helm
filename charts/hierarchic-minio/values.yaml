@@ -1,0 +1,12 @@
+minio:
+  namespaceOverride: hah-minio
+  service:
+    port: 19000
+  persistence:
+    size: 4Gi
+  resources:
+    requests:
+      memory: 256Mi
+    limits:
+      memory: 1Gi
+  replicas: 1

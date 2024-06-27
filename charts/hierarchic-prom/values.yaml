@@ -1,0 +1,17 @@
+prometheus:
+  forceNamespace: prometheus
+  server:
+    persistentVolume:
+      size: 2Gi
+  alertmanager:
+    namespaceOverride: prometheus
+    persistentVolume:
+      size: 500Mi
+  prometheus-node-exporter:
+    namespaceOverride: prometheus
+    podMonitor:
+      namespace: prometheus
+  kube-state-metrics:
+    namespaceOverride: prometheus
+  prometheus-pushgateway:
+    namespaceOverride: prometheus

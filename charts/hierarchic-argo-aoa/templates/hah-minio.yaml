@@ -1,0 +1,29 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  {{- if and (.Values.global.dest.name) (not .Values.namePrefix ) }}
+  name: {{ .Values.global.dest.name }}-{{ .Values.minio.name }}
+  {{- else if (.Values.namePrefix) }}
+  name: {{ .Values.namePrefix }}-{{ .Values.minio.name }}
+  {{- end }}
+  namespace: {{ .Values.global.argoNamespace }}
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  destination:
+    namespace: {{ .Values.minio.namespace | default .Values.global.dest.namespace | quote }}
+    {{- if .Values.global.dest.server }}
+    server: {{ .Values.global.dest.server }}
+    {{- else if and (.Values.global.dest.name) (not .Values.global.dest.server) }}
+    name: {{ .Values.global.dest.name }}
+    {{- end }}
+  project: {{ .Values.minio.project | default .Values.global.project }}
+  source:
+    repoURL: {{ .Values.minio.repoURL | default .Values.global.chartDefaults.repoURL | quote }}
+    targetRevision: {{ .Values.minio.revision | default .Values.global.chartDefaults.revision | quote }}
+    chart: {{ .Values.minio.chart_name }}
+    {{- if .Values.minio.valueOverrides }}
+    helm:
+      values:
+        {{ .Values.minio.valueOverrides | toYaml | trim | indent 10 }}
+    {{ end }}

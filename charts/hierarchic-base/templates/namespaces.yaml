@@ -1,0 +1,21 @@
+{{- if and (.Values.graf.enabled) (eq .Values.graf.createNamespace true) }}
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: {{ .Values.graf.grafana.namespaceOverride }}
+---
+{{- end }}
+{{- if and (.Values.prom.enabled) (eq .Values.prom.createNamespace true) }}
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: {{ .Values.prom.prometheus.forceNamespace }}
+---
+{{- end }}
+{{- if and (.Values.minio.enabled) (eq .Values.minio.createNamespace true) }}
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: {{ .Values.minio.minio.namespaceOverride }}
+---
+{{- end }}

@@ -1,0 +1,103 @@
+name: Helm Release
+
+on:
+  push:
+    branches:
+      - main
+
+env:
+  HELM_REPO_NAME: hierarchic-helm
+  HELM_REPO_BRANCH: helm-repo
+  HELM_ROOT_CHART: hierarchic-base
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4.1.7
+        with:
+          fetch-depth: 0  # Ensure the full history is fetched for git worktree
+
+      - name: Set up Helm
+        uses: azure/setup-helm@v4.2.0
+
+      - name: Set pages URL
+        id: set-url
+        run: echo "PAGES_URL=https://${{ github.repository_owner }}.github.io/${{ env.HELM_REPO_NAME }}" >> $GITHUB_ENV
+        
+      - name: Check if ${{ env.HELM_REPO_BRANCH }} branch exists
+        run: |
+          if git show-ref --quiet refs/heads/${{ env.HELM_REPO_BRANCH }}; then
+            echo "Branch ${{ env.HELM_REPO_BRANCH }} exists."
+          else
+            echo "Branch ${{ env.HELM_REPO_BRANCH }} does not exist. Creating branch."
+            git branch ${{ env.HELM_REPO_BRANCH }}
+            git push origin ${{ env.HELM_REPO_BRANCH }}
+
+      - name: Create git worktree for ${{ env.HELM_REPO_BRANCH }}
+        run: git worktree add ${{ env.HELM_REPO_BRANCH }} ${{ env.HELM_REPO_BRANCH }}
+
+      - name: Add helm repos
+        run: |
+          helm repo add grafana https://grafana.github.io/helm-charts
+          helm repo add minio https://charts.min.io/
+          helm repo add prometheus https://prometheus-community.github.io/helm-charts
+          helm repo add extsecrets https://charts.external-secrets.io/
+          helm repo update
+
+      - name: Package sub-charts
+        run: |
+          mkdir -p ${{ env.HELM_REPO_BRANCH }}/charts
+          for chart in $(ls charts | grep -v '${{ env.HELM_ROOT_CHART }}'); do
+            helm package $chart -d packaged-charts
+          done
+
+      - name: Copy packaged charts to worktree
+        run: |
+          mkdir -p ${{ env.HELM_REPO_BRANCH }}/charts
+          cp -r packaged-charts/* ${{ env.HELM_REPO_BRANCH }}/charts/
+
+      - name: Generate Helm repo index
+        run: |
+          if [ -f ${{ env.HELM_REPO_BRANCH }}/index.yaml ]; then
+            helm repo index ${{ env.HELM_REPO_BRANCH }} --url ${{ env.PAGES_URL }} --merge ${{ env.HELM_REPO_BRANCH }}/index.yaml
+          else
+            helm repo index ${{ env.HELM_REPO_BRANCH }} --url ${{ env.PAGES_URL }}
+
+      - name: Commit and push sub-charts to ${{ env.HELM_REPO_BRANCH }} branch
+        run: |
+          cd ${{ env.HELM_REPO_BRANCH }}
+          git add .
+          git commit -m "Update sub-charts"
+          git push origin ${{ env.HELM_REPO_BRANCH }}
+        working-directory: ${{ env.HELM_REPO_BRANCH }}
+
+      - name: Update dependencies for umbrella chart
+        run: helm dependency update ./charts/umbrella
+
+      - name: Package umbrella chart
+        run: helm package ./charts/${{ env.HELM_ROOT_CHART }} -d ${{ env.HELM_REPO_BRANCH }}/charts
+
+      - name: Copy packaged umbrella chart to worktree
+        run: cp packaged-charts/${{ env.HELM_ROOT_CHART }}.tgz helm-repo/charts/
+
+      - name: Generate Helm repo index
+        run: |
+          if [ -f ${{ env.HELM_REPO_BRANCH }}/index.yaml ]; then
+            helm repo index ${{ env.HELM_REPO_BRANCH }} --url ${{ env.PAGES_URL }} --merge ${{ env.HELM_REPO_BRANCH }}/index.yaml
+          else
+            helm repo index ${{ env.HELM_REPO_BRANCH }} --url ${{ env.PAGES_URL }}
+          
+
+      - name: Commit and push umbrella chart to ${{ env.HELM_REPO_BRANCH }} branch
+        run: |
+          cd ${{ env.HELM_REPO_BRANCH }}
+          git add .
+          git commit -m "Update umbrella chart"
+          git push origin ${{ env.HELM_REPO_BRANCH }}
+        working-directory: ${{ env.HELM_REPO_BRANCH }}
+
+      - name: Clean up
+        run: git worktree remove ${{ env.HELM_REPO_BRANCH }}

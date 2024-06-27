@@ -1,0 +1,9 @@
+apiVersion: v2
+name: hierarchic-minio
+version: 1.0.0-alpha
+appVersion: "0.1"
+description: Hierarchic Minio Base Chart
+dependencies:
+  - name: minio
+    version: 14.6.7
+    repository: https://charts.bitnami.com/bitnami

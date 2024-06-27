@@ -1,0 +1,29 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  {{- if and (.Values.global.dest.name) (not .Values.namePrefix ) }}
+  name: {{ .Values.global.dest.name }}-{{ .Values.extsec.name }}
+  {{- else if (.Values.namePrefix) }}
+  name: {{ .Values.namePrefix }}-{{ .Values.extsec.name }}
+  {{- end }}
+  namespace: {{ .Values.global.argoNamespace }}
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  destination:
+    namespace: {{ .Values.extsec.namespace | default .Values.global.dest.namespace | quote }}
+    {{- if .Values.global.dest.server }}
+    server: {{ .Values.global.dest.server }}
+    {{- else if and (.Values.global.dest.name) (not .Values.global.dest.server) }}
+    name: {{ .Values.global.dest.name }}
+    {{- end }}
+  project: {{ .Values.extsec.project | default .Values.global.project }}
+  source:
+    repoURL: {{ .Values.extsec.repoURL | default .Values.global.chartDefaults.repoURL | quote }}
+    targetRevision: {{ .Values.extsec.revision | default .Values.global.chartDefaults.revision | quote }}
+    chart: {{ .Values.extsec.chart_name }}
+    {{- if .Values.extsec.valueOverrides }}
+    helm:
+      values:
+        {{ .Values.extsec.valueOverrides | toYaml | trim | indent 10 }}
+    {{ end }}

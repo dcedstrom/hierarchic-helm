@@ -1,0 +1,9 @@
+apiVersion: v2
+name: hierarchic-prom
+version: 1.0.2-alpha
+appVersion: "0.1"
+description: Hierarchic Prometheus Base Chart
+dependencies:
+  - name: prometheus
+    version: 25.20.1
+    repository: https://prometheus-community.github.io/helm-charts

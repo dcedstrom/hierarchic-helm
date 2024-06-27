@@ -1,0 +1,4 @@
+grafana:
+  namespaceOverride: grafana
+  service:
+    port: 18080

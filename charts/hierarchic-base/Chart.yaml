@@ -1,0 +1,23 @@
+apiVersion: v2
+name: hierarchic-base
+version: 1.0.6-alpha
+type: application
+appVersion: "0.1"
+description: Hierarchic Helm Base Chart
+dependencies:
+  - name: hierarchic-grafana
+    version: ">=1.0.0-0 <2.0.0-0"
+    repository: https://dcedstrom.github.io/hierarchic-helm/
+    alias: graf
+    condition: graf.enabled
+  - name: hierarchic-prom
+    version: ">=1.0.0-0 <2.0.0-0"
+    repository: https://dcedstrom.github.io/hierarchic-helm/
+    alias: prom
+    condition: prom.enabled
+  - name: hierarchic-minio
+    version: ">=1.0.0-0 <2.0.0-0"
+    repository: https://dcedstrom.github.io/hierarchic-helm/
+    alias: minio
+    condition: minio.enabled
+

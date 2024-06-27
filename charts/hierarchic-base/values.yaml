@@ -1,0 +1,17 @@
+graf:
+  enabled: true
+  createNamespace: true
+  grafana:
+    namespaceOverride: grafana
+
+prom:
+  enabled: true
+  createNamespace: true
+  prometheus:
+    forceNamespace: prometheus
+
+minio:
+  enabled: false
+  createNamespace: true
+  minio:
+    namespaceOverride: minio
