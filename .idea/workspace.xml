@@ -4,17 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2f48641f-d4a9-4d3e-be15-969713d791ce" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/aws.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/hierarchic-helm.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jpa-buddy.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/material_theme_project_new.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/hierarchic-helm.iml" beforeDir="false" afterPath="$PROJECT_DIR$/hierarchic-helm.iml" afterDir="false" />
+    <list default="true" id="2f48641f-d4a9-4d3e-be15-969713d791ce" name="Changes" comment="Adding back in jb project files">
+      <change beforePath="$PROJECT_DIR$/.github/workflows/helm-release.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/helm-release.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,6 +42,10 @@
     "git-widget-placeholder": "main",
     "go.import.settings.migrated": "true",
     "kotlin-language-version-configured": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "org.rust.first.attach.projects": "true",
     "vue.rearranger.settings.migration": "true"
@@ -74,12 +69,33 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1719518037007</updated>
-      <workItem from="1719518038129" duration="100000" />
+      <workItem from="1719518038129" duration="1087000" />
     </task>
+    <task id="LOCAL-00001" summary="Adding back in jb project files">
+      <option name="closed" value="true" />
+      <created>1719518173758</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1719518173758</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Adding back in jb project files">
+      <option name="closed" value="true" />
+      <created>1719518441836</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1719518441836</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Adding back in jb project files" />
+    <option name="LAST_COMMIT_MESSAGE" value="Adding back in jb project files" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>

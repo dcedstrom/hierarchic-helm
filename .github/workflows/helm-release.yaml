@@ -59,13 +59,17 @@ jobs:
       - name: Copy packaged charts to worktree
         run: |
           mkdir -p ${{ env.HELM_REPO_BRANCH }}/charts
+          ls packaged-charts/
           cp -r packaged-charts/* ${{ env.HELM_REPO_BRANCH }}/charts/
+          ls ${{ env.HELM_REPO_BRANCH }}/charts/
 
       - name: Generate Helm repo index
         run: |
           if [ -f ${{ env.HELM_REPO_BRANCH }}/index.yaml ]; then
+            echo "Merging index"
             helm repo index ${{ env.HELM_REPO_BRANCH }} --url ${{ env.PAGES_URL }} --merge ${{ env.HELM_REPO_BRANCH }}/index.yaml
           else
+            echo "Creating new index file"
             helm repo index ${{ env.HELM_REPO_BRANCH }} --url ${{ env.PAGES_URL }}
           fi
 
@@ -76,6 +80,7 @@ jobs:
 
       - name: Commit and push sub-charts to ${{ env.HELM_REPO_BRANCH }} branch
         run: |
+          ls
           git add .
           git commit -m "Update sub-charts"
           git push origin ${{ env.HELM_REPO_BRANCH }} --force
@@ -91,7 +96,7 @@ jobs:
       - name: Copy packaged umbrella chart to worktree
         run: cp packaged-charts/${{ env.HELM_ROOT_CHART }}.tgz helm-repo/charts/
 
-      - name: Generate Helm repo index
+      - name: Generate Helm repo index for umbrella chart
         run: |
           if [ -f ${{ env.HELM_REPO_BRANCH }}/index.yaml ]; then
             helm repo index ${{ env.HELM_REPO_BRANCH }} --url ${{ env.PAGES_URL }} --merge ${{ env.HELM_REPO_BRANCH }}/index.yaml
@@ -102,6 +107,7 @@ jobs:
 
       - name: Commit and push umbrella chart to ${{ env.HELM_REPO_BRANCH }} branch
         run: |
+          ls
           git add .
           git commit -m "Update umbrella chart"
           git push origin ${{ env.HELM_REPO_BRANCH }} --force
