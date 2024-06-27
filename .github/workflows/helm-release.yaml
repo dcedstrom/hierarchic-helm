@@ -34,7 +34,7 @@ jobs:
           else
             echo "Branch ${{ env.HELM_REPO_BRANCH }} does not exist. Creating branch."
             git branch ${{ env.HELM_REPO_BRANCH }}
-            git push origin ${{ env.HELM_REPO_BRANCH }}
+            git push origin ${{ env.HELM_REPO_BRANCH }} --push
           fi
 
       - name: Create git worktree for ${{ env.HELM_REPO_BRANCH }}
@@ -73,7 +73,7 @@ jobs:
           cd ${{ env.HELM_REPO_BRANCH }}
           git add .
           git commit -m "Update sub-charts"
-          git push origin ${{ env.HELM_REPO_BRANCH }}
+          git push origin ${{ env.HELM_REPO_BRANCH }} --force
         working-directory: ${{ env.HELM_REPO_BRANCH }}
 
       - name: Update dependencies for umbrella chart
@@ -99,7 +99,7 @@ jobs:
           cd ${{ env.HELM_REPO_BRANCH }}
           git add .
           git commit -m "Update umbrella chart"
-          git push origin ${{ env.HELM_REPO_BRANCH }}
+          git push origin ${{ env.HELM_REPO_BRANCH }} --force
         working-directory: ${{ env.HELM_REPO_BRANCH }}
 
       - name: Clean up
