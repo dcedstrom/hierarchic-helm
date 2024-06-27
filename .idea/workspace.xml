@@ -4,8 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2f48641f-d4a9-4d3e-be15-969713d791ce" name="Changes" comment="fixed umbrella packaging">
+    <list default="true" id="2f48641f-d4a9-4d3e-be15-969713d791ce" name="Changes" comment="version bump">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/charts/hierarchic-argo-aoa/Chart.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/charts/hierarchic-argo-aoa/Chart.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/charts/hierarchic-argo-aoa/templates/hah-extsec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/charts/hierarchic-argo-aoa/templates/hah-extsec.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/charts/hierarchic-argo-aoa/templates/hah-grafana.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/charts/hierarchic-argo-aoa/templates/hah-grafana.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/charts/hierarchic-argo-aoa/templates/hah-minio.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/charts/hierarchic-argo-aoa/templates/hah-minio.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/charts/hierarchic-argo-aoa/templates/hah-prom.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/charts/hierarchic-argo-aoa/templates/hah-prom.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/charts/hierarchic-argo-aoa/values.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/charts/hierarchic-argo-aoa/values.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -56,6 +61,7 @@
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "org.rust.first.attach.projects": "true",
+    "settings.editor.selected.configurable": "editing.templates",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -77,7 +83,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1719518037007</updated>
-      <workItem from="1719518038129" duration="5646000" />
+      <workItem from="1719518038129" duration="8391000" />
     </task>
     <task id="LOCAL-00001" summary="Adding back in jb project files">
       <option name="closed" value="true" />
@@ -143,7 +149,23 @@
       <option name="project" value="LOCAL" />
       <updated>1719522587047</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="added usable defaults for aoa testing">
+      <option name="closed" value="true" />
+      <created>1719524854421</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1719524854421</updated>
+    </task>
+    <task id="LOCAL-00010" summary="version bump">
+      <option name="closed" value="true" />
+      <created>1719525097733</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1719525097733</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -157,9 +179,15 @@
     <MESSAGE value="Testing behavior with standard `cd` instead of using gh action's `working-directory`" />
     <MESSAGE value="Removed tgz ignore so gh pages publish works" />
     <MESSAGE value="fixed umbrella packaging" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed umbrella packaging" />
+    <MESSAGE value="added usable defaults for aoa testing" />
+    <MESSAGE value="version bump" />
+    <option name="LAST_COMMIT_MESSAGE" value="version bump" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>
