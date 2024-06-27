@@ -81,7 +81,7 @@ jobs:
       - name: Commit and push sub-charts to ${{ env.HELM_REPO_BRANCH }} branch
         run: |
           ls
-          git add .
+          git add -A
           git commit -m "Update sub-charts"
           git push origin ${{ env.HELM_REPO_BRANCH }} --force
         working-directory: ${{ env.HELM_REPO_BRANCH }}
@@ -108,7 +108,7 @@ jobs:
       - name: Commit and push umbrella chart to ${{ env.HELM_REPO_BRANCH }} branch
         run: |
           ls
-          git add .
+          git add -A
           git commit -m "Update umbrella chart"
           git push origin ${{ env.HELM_REPO_BRANCH }} --force
         working-directory: ${{ env.HELM_REPO_BRANCH }}
