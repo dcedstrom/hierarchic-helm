@@ -52,6 +52,7 @@ jobs:
         run: |
           mkdir -p ${{ env.HELM_REPO_BRANCH }}/charts
           for chart in $(ls charts | grep -v '${{ env.HELM_ROOT_CHART }}'); do
+            helm dependency update ./charts/$chart
             helm package ./charts/$chart -d packaged-charts
           done
 
@@ -77,10 +78,11 @@ jobs:
         working-directory: ${{ env.HELM_REPO_BRANCH }}
 
       - name: Update dependencies for umbrella chart
-        run: helm dependency update ./charts/umbrella
+        run: helm dependency update ./charts/${{ env.HELM_ROOT_CHART }}
 
       - name: Package umbrella chart
-        run: helm package ./charts/${{ env.HELM_ROOT_CHART }} -d ${{ env.HELM_REPO_BRANCH }}/charts
+        run: |
+          helm package ./charts/${{ env.HELM_ROOT_CHART }} -d ${{ env.HELM_REPO_BRANCH }}/charts
 
       - name: Copy packaged umbrella chart to worktree
         run: cp packaged-charts/${{ env.HELM_ROOT_CHART }}.tgz helm-repo/charts/
