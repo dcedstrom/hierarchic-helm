@@ -71,7 +71,6 @@ jobs:
 
       - name: Commit and push sub-charts to ${{ env.HELM_REPO_BRANCH }} branch
         run: |
-          cd ${{ env.HELM_REPO_BRANCH }}
           git add .
           git commit -m "Update sub-charts"
           git push origin ${{ env.HELM_REPO_BRANCH }} --force
@@ -98,7 +97,6 @@ jobs:
 
       - name: Commit and push umbrella chart to ${{ env.HELM_REPO_BRANCH }} branch
         run: |
-          cd ${{ env.HELM_REPO_BRANCH }}
           git add .
           git commit -m "Update umbrella chart"
           git push origin ${{ env.HELM_REPO_BRANCH }} --force
