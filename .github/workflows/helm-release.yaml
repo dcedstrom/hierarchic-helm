@@ -52,7 +52,7 @@ jobs:
         run: |
           mkdir -p ${{ env.HELM_REPO_BRANCH }}/charts
           for chart in $(ls charts | grep -v '${{ env.HELM_ROOT_CHART }}'); do
-            helm package $chart -d packaged-charts
+            helm package ./charts/$chart -d packaged-charts
           done
 
       - name: Copy packaged charts to worktree
