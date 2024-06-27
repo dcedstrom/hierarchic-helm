@@ -69,6 +69,11 @@ jobs:
             helm repo index ${{ env.HELM_REPO_BRANCH }} --url ${{ env.PAGES_URL }}
           fi
 
+      - name: Set git config
+        run: |
+          git config --global user.name "github-actions"
+          git config --global user.email "github-actions@github.com"
+
       - name: Commit and push sub-charts to ${{ env.HELM_REPO_BRANCH }} branch
         run: |
           git add .
