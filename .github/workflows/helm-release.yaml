@@ -34,7 +34,7 @@ jobs:
           else
             echo "Branch ${{ env.HELM_REPO_BRANCH }} does not exist. Creating branch."
             git branch ${{ env.HELM_REPO_BRANCH }}
-            git push origin ${{ env.HELM_REPO_BRANCH }} --push
+            git push origin ${{ env.HELM_REPO_BRANCH }} --force
           fi
 
       - name: Create git worktree for ${{ env.HELM_REPO_BRANCH }}
