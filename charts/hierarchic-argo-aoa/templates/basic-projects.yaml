@@ -1,12 +1,33 @@
-{{- if .Values.projects.basic.create }}
-{{- $uniqueProjects := include "genProject" . | fromYaml -}}
-{{- range $index, $project := $uniqueProjects }}
+{{ if .Values.projects.basic.create }}
+{{- $global := .Values.global -}}
+{{- $argoNamespace := $global.argoNamespace -}}
+{{- $projects := list -}}
+
+{{- range $name, $app := .Values.apps -}}
+  {{- $project := $app | dig "project" "default" -}}
+    {{- if $project  -}}
+      {{- $projects = append $projects $project -}}
+  {{- end -}}
+{{- end -}}
+
+{{- $uniqueProjects := $projects | uniq -}}
+
+{{- range $index, $projectName := $uniqueProjects -}}
 apiVersion: argoproj.io/v1alpha1
 kind: AppProject
 metadata:
-  name: {{ $project }}
-  namespace: {{ .Values.global.argoNamespace }}
+  name: {{ $projectName }}
+  namespace: {{ $argoNamespace }}
 spec:
-  description: Project for {{ $project }}
-  {{- end }}
-{{- end }}
+  description: Project {{ $projectName }}
+  sourceRepos:
+    - '*'
+  destinations:
+    - namespace: '*'
+      server: '*'
+  clusterResourceWhitelist:
+    - group: '*'
+      kind: '*'
+---
+{{- end -}}
+{{- end -}}
