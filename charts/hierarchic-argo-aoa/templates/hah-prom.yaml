@@ -1,34 +1,34 @@
-{{- if .Values.prom.enabled }}
+{{- if .Values.apps.prom.enabled }}
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   {{- if and (.Values.global.dest.name) (not .Values.namePrefix ) }}
-  name: {{ .Values.global.dest.name }}-{{ .Values.prom.name }}
+  name: {{ .Values.global.dest.name }}-{{ .Values.apps.prom.name }}
   {{- else if (.Values.namePrefix) }}
-  name: {{ .Values.namePrefix }}-{{ .Values.prom.name }}
+  name: {{ .Values.namePrefix }}-{{ .Values.apps.prom.name }}
   {{- end }}
   namespace: {{ .Values.global.argoNamespace }}
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
   destination:
-    namespace: {{ .Values.prom.namespace | default .Values.global.dest.namespace | quote }}
+    namespace: {{ .Values.apps.prom.namespace | default .Values.global.dest.namespace | quote }}
     {{- if .Values.global.dest.server }}
     server: {{ .Values.global.dest.server }}
     {{- else if and (.Values.global.dest.name) (not .Values.global.dest.server) }}
     name: {{ .Values.global.dest.name }}
     {{- end }}
-  project: {{ .Values.prom.project | default .Values.global.project }}
+  project: {{ .Values.apps.prom.project | default .Values.global.project }}
   syncPolicy:
     syncOptions:
-      - CreateNamespace={{ .Values.prom.createNamespace | default "true" }}
+      - CreateNamespace={{ .Values.apps.prom.createNamespace | default "true" }}
   source:
-    repoURL: {{ .Values.prom.repoURL | default .Values.global.chartDefaults.repoURL | quote }}
-    targetRevision: {{ .Values.prom.revision | default .Values.global.chartDefaults.revision | quote }}
-    chart: {{ .Values.prom.chart_name }}
-    {{- if .Values.prom.valueOverrides }}
+    repoURL: {{ .Values.apps.prom.repoURL | default .Values.global.chartDefaults.repoURL | quote }}
+    targetRevision: {{ .Values.apps.prom.revision | default .Values.global.chartDefaults.revision | quote }}
+    chart: {{ .Values.apps.prom.chart_name }}
+    {{- if .Values.apps.prom.valueOverrides }}
     helm:
       values:
-        {{ .Values.prom.valueOverrides | toYaml | trim | indent 10 }}
+        {{ .Values.apps.prom.valueOverrides | toYaml | trim | indent 10 }}
     {{ end }}
 {{- end }}

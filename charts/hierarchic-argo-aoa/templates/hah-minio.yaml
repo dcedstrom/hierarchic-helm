@@ -1,34 +1,34 @@
-{{- if .Values.minio.enabled }}
+{{- if .Values.apps.minio.enabled }}
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   {{- if and (.Values.global.dest.name) (not .Values.namePrefix ) }}
-  name: {{ .Values.global.dest.name }}-{{ .Values.minio.name }}
+  name: {{ .Values.global.dest.name }}-{{ .Values.apps.minio.name }}
   {{- else if (.Values.namePrefix) }}
-  name: {{ .Values.namePrefix }}-{{ .Values.minio.name }}
+  name: {{ .Values.namePrefix }}-{{ .Values.apps.minio.name }}
   {{- end }}
   namespace: {{ .Values.global.argoNamespace }}
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
   destination:
-    namespace: {{ .Values.minio.namespace | default .Values.global.dest.namespace | quote }}
+    namespace: {{ .Values.apps.minio.namespace | default .Values.global.dest.namespace | quote }}
     {{- if .Values.global.dest.server }}
     server: {{ .Values.global.dest.server }}
     {{- else if and (.Values.global.dest.name) (not .Values.global.dest.server) }}
     name: {{ .Values.global.dest.name }}
     {{- end }}
-  project: {{ .Values.minio.project | default .Values.global.project }}
+  project: {{ .Values.apps.minio.project | default .Values.global.project }}
   syncPolicy:
     syncOptions:
-      - CreateNamespace={{ .Values.minio.createNamespace | default "true" }}
+      - CreateNamespace={{ .Values.apps.minio.createNamespace | default "true" }}
   source:
-    repoURL: {{ .Values.minio.repoURL | default .Values.global.chartDefaults.repoURL | quote }}
-    targetRevision: {{ .Values.minio.revision | default .Values.global.chartDefaults.revision | quote }}
-    chart: {{ .Values.minio.chart_name }}
-    {{- if .Values.minio.valueOverrides }}
+    repoURL: {{ .Values.apps.minio.repoURL | default .Values.global.chartDefaults.repoURL | quote }}
+    targetRevision: {{ .Values.apps.minio.revision | default .Values.global.chartDefaults.revision | quote }}
+    chart: {{ .Values.apps.minio.chart_name }}
+    {{- if .Values.apps.minio.valueOverrides }}
     helm:
       values:
-        {{ .Values.minio.valueOverrides | toYaml | trim | indent 10 }}
+        {{ .Values.apps.minio.valueOverrides | toYaml | trim | indent 10 }}
     {{ end }}
 {{- end }}

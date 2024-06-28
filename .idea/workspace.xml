@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2f48641f-d4a9-4d3e-be15-969713d791ce" name="Changes" comment="version bump">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/charts/hierarchic-argo-aoa/Chart.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/charts/hierarchic-argo-aoa/Chart.yaml" afterDir="false" />
+    <list default="true" id="2f48641f-d4a9-4d3e-be15-969713d791ce" name="Changes" comment="Added toggle, populated nameprefix for testing (lacking usable defaults), added create namespace toggle in argo app">
+      <change afterPath="$PROJECT_DIR$/charts/hierarchic-argo-aoa/templates/_helpers.tpl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/charts/hierarchic-argo-aoa/templates/basic-projects.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/charts/hierarchic-argo-aoa/templates/hah-extsec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/charts/hierarchic-argo-aoa/templates/hah-extsec.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/charts/hierarchic-argo-aoa/templates/hah-grafana.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/charts/hierarchic-argo-aoa/templates/hah-grafana.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/charts/hierarchic-argo-aoa/templates/hah-minio.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/charts/hierarchic-argo-aoa/templates/hah-minio.yaml" afterDir="false" />
@@ -83,7 +83,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1719518037007</updated>
-      <workItem from="1719518038129" duration="8391000" />
+      <workItem from="1719518038129" duration="14233000" />
     </task>
     <task id="LOCAL-00001" summary="Adding back in jb project files">
       <option name="closed" value="true" />
@@ -165,7 +165,15 @@
       <option name="project" value="LOCAL" />
       <updated>1719525097733</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Added toggle, populated nameprefix for testing (lacking usable defaults), added create namespace toggle in argo app">
+      <option name="closed" value="true" />
+      <created>1719527372101</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1719527372101</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -181,7 +189,8 @@
     <MESSAGE value="fixed umbrella packaging" />
     <MESSAGE value="added usable defaults for aoa testing" />
     <MESSAGE value="version bump" />
-    <option name="LAST_COMMIT_MESSAGE" value="version bump" />
+    <MESSAGE value="Added toggle, populated nameprefix for testing (lacking usable defaults), added create namespace toggle in argo app" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added toggle, populated nameprefix for testing (lacking usable defaults), added create namespace toggle in argo app" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>

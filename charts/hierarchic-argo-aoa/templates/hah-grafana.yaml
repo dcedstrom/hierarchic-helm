@@ -1,34 +1,34 @@
-{{- if .Values.graf.enabled }}
+{{- if .Values.apps.graf.enabled }}
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   {{- if and (.Values.global.dest.name) (not .Values.namePrefix ) }}
-  name: {{ .Values.global.dest.name }}-{{ .Values.graf.name }}
+  name: {{ .Values.global.dest.name }}-{{ .Values.apps.graf.name }}
   {{- else if (.Values.namePrefix) }}
-  name: {{ .Values.namePrefix }}-{{ .Values.graf.name }}
+  name: {{ .Values.namePrefix }}-{{ .Values.apps.graf.name }}
   {{- end }}
   namespace: {{ .Values.global.argoNamespace }}
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
   destination:
-    namespace: {{ .Values.graf.namespace | default .Values.global.dest.namespace | quote }}
+    namespace: {{ .Values.apps.graf.namespace | default .Values.global.dest.namespace | quote }}
     {{- if .Values.global.dest.server }}
     server: {{ .Values.global.dest.server }}
     {{- else if and (.Values.global.dest.name) (not .Values.global.dest.server) }}
     name: {{ .Values.global.dest.name }}
     {{- end }}
-  project: {{ .Values.graf.project | default .Values.global.project }}
+  project: {{ .Values.apps.graf.project | default .Values.global.project }}
   syncPolicy:
     syncOptions:
-      - CreateNamespace={{ .Values.graf.createNamespace | default "true" }}
+      - CreateNamespace={{ .Values.apps.graf.createNamespace | default "true" }}
   source:
-    repoURL: {{ .Values.graf.repoURL | default .Values.global.chartDefaults.repoURL | quote }}
-    targetRevision: {{ .Values.graf.revision | default .Values.global.chartDefaults.revision | quote }}
-    chart: {{ .Values.graf.chart_name }}
-    {{- if .Values.graf.valueOverrides }}
+    repoURL: {{ .Values.apps.graf.repoURL | default .Values.global.chartDefaults.repoURL | quote }}
+    targetRevision: {{ .Values.apps.graf.revision | default .Values.global.chartDefaults.revision | quote }}
+    chart: {{ .Values.apps.graf.chart_name }}
+    {{- if .Values.apps.graf.valueOverrides }}
     helm:
       values:
-        {{ .Values.graf.valueOverrides | toYaml | trim | indent 10 }}
+        {{ .Values.apps.graf.valueOverrides | toYaml | trim | indent 10 }}
     {{ end }}
 {{- end }}

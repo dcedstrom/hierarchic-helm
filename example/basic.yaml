@@ -1,0 +1,17 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+spec:
+  destination:
+    namespace: argocd # Name of argo ns
+    server: https://kubernetes.default.svc # Where argo instance resides
+  project: default
+  source:
+    chart: hierarchic-argo-aoa # This helm chart
+    helm:
+      parameters:
+        - name: global.dest.name
+          value: dev-01 # Name of cluster to deploy underlying apps to
+        - name: global.argoNamespace
+          value: argocd # Where application manifests should live, no current support for app in any ns
+    repoURL: https://dcedstrom.github.io/hierarchic-helm
+    targetRevision: '>=1.0.0-0'

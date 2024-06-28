@@ -1,0 +1,12 @@
+{{- if .Values.projects.basic.create }}
+{{- $uniqueProjects := include "genProject" . | fromYaml -}}
+{{- range $index, $project := $uniqueProjects }}
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: {{ $project }}
+  namespace: {{ .Values.global.argoNamespace }}
+spec:
+  description: Project for {{ $project }}
+  {{- end }}
+{{- end }}

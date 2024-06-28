@@ -1,8 +1,13 @@
 # Prefix to use for resources
-namePrefix: "test"
+namePrefix: ""
 
 hierarchic-argo-aoa:
   enabled: true
+
+projects:
+  # Need to decide if extended project creation should be defined here or in dedicated chart
+  basic:
+    create: true
 
 
 global:
@@ -17,44 +22,44 @@ global:
     namespace: "default"
     project: "default"
 
-prom:
-  enabled: true
-  name: "prometheus"
-  namespace: "prometheus"
-  project: "monitoring"
-  repoURL: ""
-  chart_name: "hierarchic-prom"
-  revision: ">=1.0.0-0"
-  valueOverrides: {}
+apps:
+  prom:
+    enabled: true
+    name: "prometheus"
+    namespace: "prometheus"
+    project: "monitoring"
+    repoURL: ""
+    chart_name: "hierarchic-prom"
+    revision: ">=1.0.0-0"
+    valueOverrides: {}
 
-graf:
-  enabled: true
-  name: "grafana"
-  namespace: "grafana"
-  project: "monitoring"
-  repoURL: ""
-  chart_name: "hierarchic-grafana"
-  revision: ">=1.0.0-0"
-  valueOverrides: {}
+  graf:
+    enabled: true
+    name: "grafana"
+    namespace: "grafana"
+    project: "monitoring"
+    repoURL: ""
+    chart_name: "hierarchic-grafana"
+    revision: ">=1.0.0-0"
+    valueOverrides: {}
 
-extsec:
-  enabled: true
-  name: "external-secrets"
-  namespace: "external-secrets"
-  project: "security"
-  repoURL: ""
-  chart_name: "hierarchic-extsec"
-  revision: ">=1.0.0-0"
-  valueOverrides: {}
+  extsec:
+    enabled: true
+    name: "external-secrets"
+    namespace: "external-secrets"
+    project: "security"
+    repoURL: ""
+    chart_name: "hierarchic-extsec"
+    revision: ">=1.0.0-0"
+    valueOverrides: {}
 
 
-minio:
-  enabled: false
-  name: "minio"
-  namespace: "minio"
-  project: ""
-  repoURL: ""
-  chart_name: "hierarchic-minio"
-  revision: ""
-  valueOverrides: {}
-
+  minio:
+    enabled: false
+    name: "minio"
+    namespace: "minio"
+    project: ""
+    repoURL: ""
+    chart_name: "hierarchic-minio"
+    revision: ""
+    valueOverrides: {}
