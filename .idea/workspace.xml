@@ -4,19 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2f48641f-d4a9-4d3e-be15-969713d791ce" name="Changes" comment="Added toggle, populated nameprefix for testing (lacking usable defaults), added create namespace toggle in argo app">
-      <change afterPath="$PROJECT_DIR$/charts/hierarchic-argo-aoa/templates/_helpers.tpl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/charts/hierarchic-argo-aoa/templates/basic-projects.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/charts/hierarchic-argo-aoa/templates/hah-extsec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/charts/hierarchic-argo-aoa/templates/hah-extsec.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/charts/hierarchic-argo-aoa/templates/hah-grafana.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/charts/hierarchic-argo-aoa/templates/hah-grafana.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/charts/hierarchic-argo-aoa/templates/hah-minio.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/charts/hierarchic-argo-aoa/templates/hah-minio.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/charts/hierarchic-argo-aoa/templates/hah-prom.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/charts/hierarchic-argo-aoa/templates/hah-prom.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/charts/hierarchic-argo-aoa/values.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/charts/hierarchic-argo-aoa/values.yaml" afterDir="false" />
+    <list default="true" id="2f48641f-d4a9-4d3e-be15-969713d791ce" name="Changes" comment="Fixed and simplified dynamic project generation logic">
+      <change beforePath="$PROJECT_DIR$/.idea/material_theme_project_new.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/material_theme_project_new.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/readme.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="EmbeddingIndexingInfo">
+    <option name="cachedIndexableFilesCount" value="40" />
+    <option name="fileBasedEmbeddingIndicesEnabled" value="true" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -31,16 +31,30 @@
   <component name="GithubDefaultAccount">
     <option name="defaultAccountId" value="d7cdfe69-e671-4cd7-92f8-d0a349d086e9" />
   </component>
-  <component name="KubernetesApiPersistence"><![CDATA[{}]]></component>
-  <component name="KubernetesApiProvider"><![CDATA[{
-  "isMigrated": true
-}]]></component>
+  <component name="KubernetesApiPersistence">{}</component>
+  <component name="KubernetesApiProvider">{
+  &quot;isMigrated&quot;: true
+}</component>
+  <component name="KubernetesSettings">
+    <option name="helmParameters">
+      <HelmParameters>
+        <option name="chartPath" value="$PROJECT_DIR$/charts/hierarchic-argo-aoa" />
+        <option name="valuesFiles">
+          <option value="values.yaml" />
+        </option>
+      </HelmParameters>
+    </option>
+  </component>
   <component name="MacroExpansionManager">
     <option name="directoryName" value="fm7gcpvn" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 1
-}]]></component>
+  <component name="McpProjectServerCommands">
+    <commands />
+    <urls />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 1
+}</component>
   <component name="ProjectId" id="2iTcWCgLoooLPDyaiFa0iFVKdqd" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -48,32 +62,43 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "RunOnceActivity.MCP Project settings loaded": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
     "RunOnceActivity.go.formatter.settings.were.checked": "true",
     "RunOnceActivity.go.migrated.go.modules.settings": "true",
+    "RunOnceActivity.ruby.rubocop.migration.global.runOnSaveToExternalFormatter": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
+    "com.codeium.enabled": "true",
+    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
     "dart.analysis.tool.window.visible": "false",
     "git-widget-placeholder": "main",
     "go.import.settings.migrated": "true",
+    "ignore.virus.scanning.warn.message": "true",
+    "junie.onboarding.icon.badge.shown": "true",
     "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "D:/Projects/ven/hierarchic-helm",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "org.rust.cargo.project.model.impl.CargoExternalSystemProjectAware.subscribe.first.balloon": "",
     "org.rust.first.attach.projects": "true",
-    "settings.editor.selected.configurable": "editing.templates",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "to.speed.mode.migration.done": "true",
     "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File": [
+      "yaml"
+    ]
   }
 }]]></component>
   <component name="RustProjectSettings">
     <option name="toolchainHomeDirectory" value="$USER_HOME$/.cargo/bin" />
-  </component>
-  <component name="SharedIndexes">
-    <attachedChunks>
-      <set>
-        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.18034.62" />
-      </set>
-    </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -83,7 +108,16 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1719518037007</updated>
-      <workItem from="1719518038129" duration="14233000" />
+      <workItem from="1719518038129" duration="46000000" />
+      <workItem from="1720046378734" duration="20000" />
+      <workItem from="1720046891551" duration="9000" />
+      <workItem from="1727969382424" duration="16728000" />
+      <workItem from="1728318156094" duration="2630000" />
+      <workItem from="1737369086793" duration="2214000" />
+      <workItem from="1738103013385" duration="3019000" />
+      <workItem from="1743405308397" duration="295000" />
+      <workItem from="1743406446324" duration="714000" />
+      <workItem from="1779406897817" duration="10028000" />
     </task>
     <task id="LOCAL-00001" summary="Adding back in jb project files">
       <option name="closed" value="true" />
@@ -173,11 +207,38 @@
       <option name="project" value="LOCAL" />
       <updated>1719527372101</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Added project generator for non-default projects defined under application; restructured app values to ease iteration over given sub-keys">
+      <option name="closed" value="true" />
+      <created>1719534086516</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1719534086516</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Fixed and simplified dynamic project generation logic">
+      <option name="closed" value="true" />
+      <created>1719617870052</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1719617870052</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Adding back in jb project files" />
@@ -190,10 +251,9 @@
     <MESSAGE value="added usable defaults for aoa testing" />
     <MESSAGE value="version bump" />
     <MESSAGE value="Added toggle, populated nameprefix for testing (lacking usable defaults), added create namespace toggle in argo app" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added toggle, populated nameprefix for testing (lacking usable defaults), added create namespace toggle in argo app" />
-  </component>
-  <component name="VgoProject">
-    <settings-migrated>true</settings-migrated>
+    <MESSAGE value="Added project generator for non-default projects defined under application; restructured app values to ease iteration over given sub-keys" />
+    <MESSAGE value="Fixed and simplified dynamic project generation logic" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed and simplified dynamic project generation logic" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

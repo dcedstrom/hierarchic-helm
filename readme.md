@@ -12,6 +12,22 @@ propagated to all clusters. This avoids unnecessary regeneration of deployment
 definitions and allows for a more centralized management of applications which
 can be used with a wide variety of CD tools
 
+```mermaid
+flowchart TD
+    BASE["Hierarchic-Base"]
+    AOA["Argo App of Apps"]
+    GRF["Grafana"]
+    PROM["Prometheus"]
+    MIO["MinIo"]
+    EXS["External Secrets"]
+    SV@{ shape: docs, label: "Standard Values"}
+    BASE--> AOA
+    AOA --> GRF
+    AOA --> PROM
+    AOA --> MIO
+    AOA --> EXS
+```
+
 ---
 
 # Features
