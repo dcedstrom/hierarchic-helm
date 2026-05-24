@@ -3,7 +3,7 @@ entries:
   hierarchic-argo-aoa:
   - apiVersion: v2
     appVersion: "0.1"
-    created: "2026-05-24T18:30:01.951323986Z"
+    created: "2026-05-24T18:30:07.602646286Z"
     description: hierarchic-argo-aoa Base Chart
     digest: 437a032727522fd71575912956c212e2d3810d4b5bb15ab1a1ec8d09f4d874ec
     name: hierarchic-argo-aoa
@@ -11,10 +11,37 @@ entries:
     urls:
     - https://dcedstrom.github.io/hierarchic-helm/charts/hierarchic-argo-aoa-1.0.2-alpha.tgz
     version: 1.0.2-alpha
+  hierarchic-base:
+  - apiVersion: v2
+    appVersion: "0.1"
+    created: "2026-05-24T18:30:07.615659106Z"
+    dependencies:
+    - alias: graf
+      condition: graf.enabled
+      name: hierarchic-grafana
+      repository: https://dcedstrom.github.io/hierarchic-helm/
+      version: '>=1.0.0-0 <2.0.0-0'
+    - alias: prom
+      condition: prom.enabled
+      name: hierarchic-prom
+      repository: https://dcedstrom.github.io/hierarchic-helm/
+      version: '>=1.0.0-0 <2.0.0-0'
+    - alias: minio
+      condition: minio.enabled
+      name: hierarchic-minio
+      repository: https://dcedstrom.github.io/hierarchic-helm/
+      version: '>=1.0.0-0 <2.0.0-0'
+    description: Hierarchic Helm Base Chart
+    digest: da1bb6cb70942eee7c5b355b150975c003295f4822910ef353ea1cec1174c87e
+    name: hierarchic-base
+    type: application
+    urls:
+    - https://dcedstrom.github.io/hierarchic-helm/charts/hierarchic-base-1.0.6-alpha.tgz
+    version: 1.0.6-alpha
   hierarchic-extsec:
   - apiVersion: v2
     appVersion: "0.1"
-    created: "2026-05-24T18:30:01.954240838Z"
+    created: "2026-05-24T18:30:07.619186202Z"
     dependencies:
     - alias: extsec
       condition: extsec.enabled
@@ -31,7 +58,7 @@ entries:
   hierarchic-grafana:
   - apiVersion: v2
     appVersion: "0.1"
-    created: "2026-05-24T18:30:01.957976573Z"
+    created: "2026-05-24T18:30:07.621807422Z"
     dependencies:
     - name: grafana
       repository: https://grafana.github.io/helm-charts
@@ -45,7 +72,7 @@ entries:
   hierarchic-minio:
   - apiVersion: v2
     appVersion: "0.1"
-    created: "2026-05-24T18:30:01.96083753Z"
+    created: "2026-05-24T18:30:07.625685772Z"
     dependencies:
     - name: minio
       repository: https://charts.bitnami.com/bitnami
@@ -59,7 +86,7 @@ entries:
   hierarchic-prom:
   - apiVersion: v2
     appVersion: "0.1"
-    created: "2026-05-24T18:30:01.967941283Z"
+    created: "2026-05-24T18:30:07.632478093Z"
     dependencies:
     - name: prometheus
       repository: https://prometheus-community.github.io/helm-charts
@@ -70,4 +97,4 @@ entries:
     urls:
     - https://dcedstrom.github.io/hierarchic-helm/charts/hierarchic-prom-1.0.2-alpha.tgz
     version: 1.0.2-alpha
-generated: "2026-05-24T18:30:01.950931854Z"
+generated: "2026-05-24T18:30:07.602235841Z"
